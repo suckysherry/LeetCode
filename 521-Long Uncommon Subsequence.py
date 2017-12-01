@@ -1,13 +1,23 @@
-def findLUSlength(self, a, b):
+def nextGreaterElement(findNums, nums):
         """
-        :type a: str
-        :type b: str
-        :rtype: int
+        :type findNums: List[int]
+        :type nums: List[int]
+        :rtype: List[int]
         """
-        if a == b:
-            return -1
-        else:
-            return max(len(a), len(b))
+        rlist = []
+        for item in findNums:
+            flag = 0
+            for j in range(len(nums)):
+                if nums[j] == item:
+                    flag = 1
+                if flag == 1:
+                    if nums[j] > item:
+                        rlist.append(nums[j])
+                        break
+                if j == (len(nums)-1) and flag == 1:
+                    rlist.append(-1)
+                    break
+        return rlist
 
 if __name__ == '__main__':
     List = [2,4]
